@@ -1,0 +1,18 @@
+services:
+  postgres:
+    image: pgvector/pgvector:pg17
+    container_name: paper-explainer-postgres
+
+    environment:
+      POSTGRES_DB: paper_explainer
+      POSTGRES_USER: paper_admin
+      POSTGRES_PASSWORD: paper_password
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
